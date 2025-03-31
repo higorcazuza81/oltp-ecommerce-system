@@ -10,4 +10,10 @@ O formato segue as convenções de [Keep a Changelog](https://keepachangelog.com
 - **Escopo e não escopo**: Definidos na visão do projeto em `docs/visao.md`.
 - **Roadmap visual**: Criado no formato `mermaid` e adicionado ao documento de visão (`docs/visao.md`).
 
+## [1.0.1] - 2025-04-01
+### Adicionado
+- **README inicial**: Criado com visão geral do projeto, estrutura e status atual.
+- **Licença**: Adicionada a licença do projeto no arquivo `LICENSE`.
+
 [1.0.0]: https://github.com/higorcazuza81/oltp-ecommerce-system/releases/tag/v1.0.0
+[1.0.1]: https://github.com/higorcazuza81/oltp-ecommerce-system/releases/tag/v1.0.1
