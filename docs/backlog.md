@@ -27,20 +27,22 @@
 14. [ ] Testar o monitoramento com dados sintéticos.
 
 ## (EPIC) Documentação
-15. [ ] Criar o dicionário de dados (`docs/dicionario_dados.md`).
-16. [ ] Registrar decisões técnicas no arquivo (`docs/decisoes_tecnicas.md`).
-17. [ ] Atualizar o README com links para a documentação.
-18. [ ] Criar um vídeo curto explicando a arquitetura do projeto.
+15. [x] Criar o README inicial do projeto.
+16. [x] Adicionar licença ao projeto (`LICENSE`).
+17. [ ] Criar o dicionário de dados (`docs/dicionario_dados.md`).
+18. [ ] Registrar decisões técnicas no arquivo (`docs/decisoes_tecnicas.md`).
+19. [ ] Atualizar o README com links para a documentação.
+20. [ ] Criar um vídeo curto explicando a arquitetura do projeto.
 
 ## (EPIC) Dados de Teste
-19. [ ] Criar script Python para gerar dados sintéticos (`scripts/gerador_dados.py`).
-20. [ ] Popular o banco com dados de teste (`scripts/sql/03_dados_teste.sql`) (depende da tarefa 19).
+21. [ ] Criar script Python para gerar dados sintéticos (`scripts/gerador_dados.py`).
+22. [ ] Popular o banco com dados de teste (`scripts/sql/03_dados_teste.sql`) (depende da tarefa 21).
 
 ## (EPIC) Refinamento
-21. [ ] Revisar e otimizar queries com `EXPLAIN ANALYZE`.
+23. [ ] Revisar e otimizar queries com `EXPLAIN ANALYZE`.
     - [ ] Garantir que 95% das queries tenham tempo de execução < 200ms.
-22. [ ] Validar a normalização (3NF/BCNF) e documentar trade-offs.
-23. [ ] Atualizar o `CHANGELOG.md` com as mudanças realizadas.
+24. [ ] Validar a normalização (3NF/BCNF) e documentar trade-offs.
+25. [ ] Atualizar o `CHANGELOG.md` com as mudanças realizadas.
 
 ---
 
