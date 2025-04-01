@@ -8,22 +8,32 @@ Falta de exemplos práticos que integrem:
 
 ## 🛠️ Solução
 Sistema de e-commerce com:
+
 1. **Modelagem Profissional**
+   - Processo completo: Conceitual → Lógica → Física
    - 3NF/BCNF + comparação com modelo desnormalizado
+   - Diagrama ER em DBML (suporte a versionamento)
    - Índices otimizados (EXPLAIN ANALYZE)
+
 2. **Governança Prática**
    - Row-Level Security para dados sensíveis
    - Painel no Grafana (transações/min, deadlocks)
+
 3. **Documentação Replicável**
    - README com decisões técnicas
+   - **Três camadas de modelagem** (conceitual, lógica, física)
    - Vídeo de 2 min explicando a arquitetura
+   - Dicionário de dados **com comparação lógico-físico**
+   - Arquivo de modelagem lógica (`docs/modelagem_logica.md`)
 
 ## 🎯 Objetivos Mensuráveis
-| Item         | Métrica de Sucesso        |
-| ------------ | ------------------------- |
-| Modelagem    | 5+ entidades relacionadas |
-| Performance  | 95% das queries < 200ms   |
-| Documentação | 10+ decisões justificadas |
+| Item              | Métrica de Sucesso            |
+| ----------------- | ----------------------------- |
+| Modelagem         | 5+ entidades relacionadas     |
+| **Modelo Lógico** | Documentado com 3+ trade-offs |
+| **Modelo Físico** | 100% compatível com o lógico  |
+| Performance       | 95% das queries < 200ms       |
+| Documentação      | 10+ decisões justificadas     |
 
 ## 🚫 NÃO Escopo
 - Integração com APIs externas.
@@ -44,13 +54,14 @@ timeline
 ```
 
 ## 👥 Público-Alvo
-- **Recrutadores**: Prova de habilidades em SQL e governança
-- **Devs Júnior**: Template para estudos
+- **Recrutadores**: Prova de habilidades em Modeolagem de dados OLTP e governança
+- **Engenheiros(as) de dados Júnior**: Template para estudos
 - **Times de Dados**: Exemplo de documentação técnica
 
 ## 🛠️ Habilidades Demonstradas
-- PostgreSQL (modelagem, índices, RLS)
-- Normalização (3NF/BCNF)
+- Modelagem de dados em 3 níveis (conceitual, lógica, física)
+- PostgreSQL (modelagem, índices, RLS, partitioning)
 - Docker (configuração e persistência)
 - Monitoramento com Grafana
 - Documentação técnica (dicionário de dados, decisões técnicas)
+- Versionamento de diagramas (DBML)
