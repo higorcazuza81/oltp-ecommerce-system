@@ -1,14 +1,20 @@
 # 🛒 Sistema OLTP para E-Commerce
 
 ## 📖 Visão Geral
-Um sistema OLTP (Online Transaction Processing) é projetado para gerenciar transações em tempo real, garantindo integridade e performance. Este projeto simula um sistema de e-commerce para demonstrar boas práticas de modelagem relacional e governança de dados.
+Projeto demonstrando um pipeline completo de modelagem de dados OLTP para e-commerce, desde a concepção até a implementação com governança. Destaques:
 
-Foco principal:
-- **Modelagem relacional avançada** (3NF/BCNF).
-- **Governança de dados** (RLS, auditoria, backups).
-- **Monitoramento** com Grafana.
-- **Documentação profissional** para aprendizado e portfólio.
+- **Processo trifásico de modelagem**: Conceitual → Lógica → Física
+- **Governança prática**: RLS, auditoria, monitoramento em tempo real
+- **Documentação corporativa**: Dicionário de dados, histórico de decisões, comparação de abordagens
 
+## 🎯 Diferenciais Técnicos
+```mermaid
+flowchart TD
+    A[Modelagem Conceitual] --> B[Diagrama ER em DBML]
+    B --> C[Modelagem Lógica 3NF/BCNF]
+    C --> D[Implementação Física com PostgreSQL]
+    D --> E[Comparação: Normalizado vs Desnormalizado]
+```
 ## 📂 Estrutura do Projeto
 ```plaintext
 ecommerce_oltp/
@@ -17,7 +23,9 @@ ecommerce_oltp/
 │   ├── backlog.md                # Backlog priorizado
 │   ├── diagrama_er.png           # Diagrama ER (imagem)
 │   ├── decisoes_tecnicas.md      # Registro de escolhas técnicas
-│   └── dicionario_dados.md       # Dicionário de dados
+│   ├── dicionario_dados.md       # Dicionário de dados
+│   ├── modelagem_logica.md       # Especificação da modelagem lógica
+│   ├── comparacao_modelos.md     # Análise normalizado vs desnormalizado
 ├── 📁 infra/                     # Configuração Docker
 │   ├── docker-compose.yml        # Arquivo de configuração do Docker Compose
 │   └── Dockerfile                # Dockerfile para o ambiente
@@ -26,7 +34,9 @@ ecommerce_oltp/
 │   └── sql/                      # Scripts SQL
 │       ├── 01_esquema.sql        # Criação do esquema do banco
 │       ├── 02_indices.sql        # Criação de índices
-│       └── 03_dados_teste.sql    # Inserção de dados de teste
+│       ├── 03_dados_teste.sql    # Inserção de dados de teste
+│       ├── 01a_modelo_normalizado.sql # Esquema normalizado
+│       ├── 01b_modelo_desnormalizado.sql # Versão alternativa
 ├── 📁 monitoramento/             # Configuração de monitoramento
 │   ├── dashboard_grafana.json    # Dashboard do Grafana
 │   └── queries_monitoramento.sql # Queries para monitoramento
@@ -48,10 +58,35 @@ ecommerce_oltp/
   - Estabelecimento de relacionamentos.
   - Criação do diagrama ER.
 
-## 🛠️ Tecnologias Planejadas
+```mermaid
+gantt
+    title Progresso do Projeto
+    dateFormat  YYYY-MM-DD
+    section Modelagem
+    Conceitual           :active, 2025-04-03, 2d
+    Lógica               :2025-04-05, 3d
+    Física               :2025-04-08, 4d
+    section Documentação
+    Especificação Lógica :2025-04-05, 5d
+    Dicionário de Dados  :2025-04-10, 3d
+```
+
+## 🛠️ Tecnologias
 - **PostgreSQL**: Banco de dados relacional.
 - **Docker**: Para configuração e execução do ambiente.
-- **Grafana**: Monitoramento de métricas do banco de dados.
+- **DBML**: Para versionamento de diagramas ER.
+- **EXPLAIN ANALYZE**: Para análise de performance de queries SQL.
+- **Grafana**: Dashboards para:
+  - Monitoramento de transações.
+  - Eficiência de índices.
+  - Comparação entre modelos normalizado e desnormalizado.
+
+## 🔍 Métricas de Qualidade
+| Área         | Critério de Sucesso               |
+| ------------ | --------------------------------- |
+| Modelagem    | 100% rastreabilidade entre níveis |
+| Performance  | 95% queries < 200ms em carga real |
+| Documentação | 10+ trade-offs justificados       |
 
 ## 🧑‍💻 Como Contribuir
 1. Faça um fork do repositório.
