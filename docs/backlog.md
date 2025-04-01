@@ -4,45 +4,74 @@
 3. [x] Criar o roadmap visual no formato `mermaid`.
 
 ## (EPIC) Modelagem de Dados
-4. [ ] Definir entidades principais (usuários, produtos, pedidos, etc.).
-5. [ ] Estabelecer relacionamentos entre entidades.
-6. [ ] Criar o diagrama ER inicial (`docs/diagrama_er.dbml`).
-7. [ ] Implementar o esquema no PostgreSQL (`scripts/sql/01_esquema.sql`).
-    - [ ] Criar tabelas principais (usuários, produtos, pedidos, etc.).
-    - [ ] Adicionar constraints (chaves primárias, estrangeiras, etc.).
-    - [ ] Validar o esquema com dados de teste.
-8. [ ] Adicionar índices otimizados para consultas frequentes (`scripts/sql/02_indices.sql`).
+4. [ ] Definir entidades principais e relacionamentos (Modelagem Conceitual).
+    - [ ] Identificar entidades-chave (usuários, produtos, pedidos, pagamentos).
+    - [ ] Mapear cardinalidades (1:1, 1:N, N:M).
+5. [ ] Desenvolver Modelagem Lógica.
+    - [ ] Converter entidades para tabelas com atributos.
+    - [ ] Definir tipos de dados preliminares.
+    - [ ] Normalizar para 3NF/BCNF.
+    - [ ] Documentar trade-offs no arquivo (`docs/decisoes_tecnicas.md`).
+
+### Tarefa 5 - Modelagem Lógica
+Critérios:
+- Todas as entidades mapeadas na conceitual estão presentes.
+- Atributos com tipos de dados preliminares consistentes.
+- Documentados pelo menos 3 trade-offs de normalização.
+
+6. [ ] Criar diagrama ER lógico (`docs/diagrama_er.dbml`).
+7. [ ] Validar mapeamento completo (conceitual → lógica → física).
+8. [ ] Desenvolver Modelagem Física.
+    - [ ] Implementar esquema no PostgreSQL (`scripts/sql/01_esquema.sql`).
+    - [ ] Definir tipos de dados reais (ex.: `VARCHAR(255)` → `TEXT` com constraints).
+    - [ ] Adicionar partitioning (se necessário).
+    - [ ] Criar sequences para PKs auto-incremento.
+    - [ ] Gerar script DDL completo (`scripts/sql/01_esquema.sql`).
+    - [ ] Documentar alterações físicas em relação à lógica (`docs/decisoes_tecnicas.md`).
+9. [ ] Adicionar índices otimizados para consultas frequentes (`scripts/sql/02_indices.sql`).
+
+```mermaid
+graph TD
+    A[4. Modelagem Conceitual] --> B[5. Modelagem Lógica]
+    B --> C[6. Diagrama ER]
+    C --> D[7. Validar Mapeamento Completo]
+    D --> E[8. Modelagem Física]
+    E --> F[9. Índices]
+    B --> G[19. Doc. Modelagem Lógica]
+    E --> H[17. Dicionário de Dados]
+```
 
 ## (EPIC) Governança
-9. [ ] Configurar roles e permissões no PostgreSQL.
-10. [ ] Implementar Row-Level Security (RLS) para dados sensíveis.
-11. [ ] Criar triggers para auditoria básica (log de alterações).
+10. [ ] Configurar roles e permissões no PostgreSQL.
+11. [ ] Implementar Row-Level Security (RLS) para dados sensíveis.
+12. [ ] Criar triggers para auditoria básica (log de alterações).
 
 ## (EPIC) Monitoramento
-12. [ ] Configurar painel no Grafana para monitorar métricas do PostgreSQL.
-13. [ ] Criar queries de monitoramento (`monitoramento/queries_monitoramento.sql`).
+13. [ ] Configurar painel no Grafana para monitorar métricas do PostgreSQL.
+14. [ ] Criar queries de monitoramento (`monitoramento/queries_monitoramento.sql`).
     - [ ] Consultar transações por minuto.
     - [ ] Identificar deadlocks.
     - [ ] Monitorar uso de índices.
-14. [ ] Testar o monitoramento com dados sintéticos.
+15. [ ] Testar o monitoramento com dados sintéticos.
 
 ## (EPIC) Documentação
-15. [x] Criar o README inicial do projeto.
-16. [x] Adicionar licença ao projeto (`LICENSE`).
-17. [ ] Criar o dicionário de dados (`docs/dicionario_dados.md`).
-18. [ ] Registrar decisões técnicas no arquivo (`docs/decisoes_tecnicas.md`).
-19. [ ] Atualizar o README com links para a documentação.
-20. [ ] Criar um vídeo curto explicando a arquitetura do projeto.
+16. [x] Criar o README inicial do projeto.
+17. [x] Adicionar licença ao projeto (`LICENSE`).
+18. [ ] Criar o dicionário de dados (`docs/dicionario_dados.md`).
+19. [ ] Registrar decisões técnicas no arquivo (`docs/decisoes_tecnicas.md`).
+20. [ ] Criar o arquivo de modelagem lógica (`docs/modelagem_logica.md`).
+21. [ ] Atualizar o README com links para a documentação.
+22. [ ] Comparar modelagem lógica vs física em `docs/decisoes_tecnicas.md`.
 
 ## (EPIC) Dados de Teste
-21. [ ] Criar script Python para gerar dados sintéticos (`scripts/gerador_dados.py`).
-22. [ ] Popular o banco com dados de teste (`scripts/sql/03_dados_teste.sql`) (depende da tarefa 21).
+23. [ ] Criar script Python para gerar dados sintéticos (`scripts/gerador_dados.py`).
+24. [ ] Popular o banco com dados de teste (`scripts/sql/03_dados_teste.sql`) (depende da tarefa 23).
 
 ## (EPIC) Refinamento
-23. [ ] Revisar e otimizar queries com `EXPLAIN ANALYZE`.
+25. [ ] Adicionar versão desnormalizada para comparação de performance.
+26. [ ] Revisar e otimizar queries com `EXPLAIN ANALYZE`.
     - [ ] Garantir que 95% das queries tenham tempo de execução < 200ms.
-24. [ ] Validar a normalização (3NF/BCNF) e documentar trade-offs.
-25. [ ] Atualizar o `CHANGELOG.md` com as mudanças realizadas.
+27. [ ] Atualizar o `CHANGELOG.md` com as mudanças realizadas.
 
 ---
 
